@@ -57,10 +57,10 @@ with open('./data.csv','a', encoding='utf-8') as csvfile:
             
             if j % 5 == 0:
                 driver.get('https://www.lazada.vn/')
-                sleep(randint(15,25))
+                sleep(1)
         except Exception as e:
             pass
-        sleep(randint(5,20))
+        sleep(1)
         j+=1
         
 

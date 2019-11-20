@@ -34,7 +34,7 @@ def parse(url, driver):
             if dis:
                 break
             driver.execute_script("arguments[0].click();", nextbutton)
-            sleep(1)
+            sleep(3)
 
     except Exception as e:
         pass

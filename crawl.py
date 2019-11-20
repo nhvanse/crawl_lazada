@@ -5,7 +5,7 @@ from time import sleep
 from random import randint
 
 # vi tri link dau va vi tri link cuoi
-begin, end = 4001, 4100 
+begin, end = 403, 8000
 
 
 def parse(url, driver):
@@ -41,16 +41,14 @@ def parse(url, driver):
         
 
     
-url_list = open('./url_list.txt', 'r', encoding='utf-8')
+url_list = open('./url_list.txt', 'r', encoding='utf-8').read().split('\n')
 driver = webdriver.Chrome(executable_path='./chromedriver')
  
 with open('./data.csv','a', encoding='utf-8') as csvfile:
     fieldnames=['stars','text']
     writer=csv.DictWriter(csvfile,fieldnames=fieldnames,quoting=csv.QUOTE_ALL) 
     j=1
-    for url in tqdm(url_list):
-        if j < begin and j > end:
-            continue
+    for url in tqdm(url_list[begin-1:end]):
 
         try:
             comments_generator = parse(url, driver)
@@ -60,10 +58,11 @@ with open('./data.csv','a', encoding='utf-8') as csvfile:
             if j % 5 == 0:
                 driver.get('https://www.lazada.vn/')
                 sleep(randint(15,25))
-        except:
-            print('Error while parsing link: '+ url)
-        sleep(randint(15,25))
+        except Exception as e:
+            pass
+        sleep(randint(5,20))
         j+=1
+        
 
 
 driver.close()

@@ -11,7 +11,9 @@ begin, end = 403, 8000
 def parse(url, driver):
     driver.get(url)
     try:
-        while True:
+        k=0
+        while k<20:
+            k+=1
             comments_element = driver.find_element_by_class_name('mod-reviews')
             items = comments_element.find_elements_by_class_name('item')
             for item in items:

@@ -8,6 +8,7 @@
 ----- nếu chạy thời gian ngắn thì để end-begin tầm 100<br>
 ----- nếu muốn nhanh có thể chỉnh các tham số trong hàm  sleep nhỏ hơn, tuy nhiên cẩn thận việ chạy quá nhanh sẽ bị chặn.<br>
 
------------Hoàng: 1-4000, Văn: 4001-8000, Quân: 8001-12000, Hảo: 12001-14767
+-----------Hoàng: 1-4000, Văn: 4001-8000, Quân: 8001-12000, Hảo: 12001-14767<br>
+---- đã  chạy khi chỉ sleep 1 s và không thấy bị chặn nữa nên chuyển hẳn về sleep 1 s, chạy nhanh 
 
 

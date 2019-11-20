@@ -5,7 +5,7 @@ from time import sleep
 from random import randint
 
 # vi tri link dau va vi tri link cuoi
-begin, end = 1, 100 
+begin, end = 4001, 4100 
 
 
 def parse(url, driver):
@@ -34,7 +34,7 @@ def parse(url, driver):
             if dis:
                 break
             driver.execute_script("arguments[0].click();", nextbutton)
-            sleep(2)
+            sleep(1)
 
     except Exception as e:
         pass
@@ -59,10 +59,10 @@ with open('./data.csv','a', encoding='utf-8') as csvfile:
             
             if j % 5 == 0:
                 driver.get('https://www.lazada.vn/')
-                sleep(randint(20,35))
+                sleep(randint(15,25))
         except:
             print('Error while parsing link: '+ url)
-        sleep(randint(20,35))
+        sleep(randint(15,25))
         j+=1
 
 

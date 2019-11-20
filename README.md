@@ -6,6 +6,8 @@
 
 ---- set vị trí bắt đầu và vị trí kết thúc trong file crawl.py ở biến begin và end <br>
 ----- nếu chạy thời gian ngắn thì để end-begin tầm 100<br>
------ nếu muốn nhanh có thể chỉnh các tham số trong hàm  sleep nhở hơn, tuy nhiên cẩn thận việ chạy quá nhanh sẽ bị chặn.<br>
+----- nếu muốn nhanh có thể chỉnh các tham số trong hàm  sleep nhỏ hơn, tuy nhiên cẩn thận việ chạy quá nhanh sẽ bị chặn.<br>
+
+-----------Hoàng: 1-4000, Văn: 4001-8000, Quân: 8001-12000, Hảo: 12001-14767
 
 

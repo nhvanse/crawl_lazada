@@ -2,8 +2,37 @@
 
 from selenium import webdriver
 from tqdm import tqdm
+from time import sleep
+from random import randint, shuffle
+
 
 driver = webdriver.Chrome('./chromedriver')
-root_url = 'https://pages.lazada.vn/wow/i/vn/LandingPage/lazmall?wh_weex=true&wx_navbar_transparent=true&data_prefetch=true&scm=1003.4.icms-zebra-5000379-2586391.OTHER_5979073296_4798943'
 
-driver.get(root_url)
+categories_link = open('./categories.txt').read().split()
+root_url = 'https://www.lazada.vn/ta-dung-cu-ve-sinh/'
+
+
+f = open('./url.txt', 'a', encoding='utf-8')
+for cate_link in categories_link:
+	page_list = list(range(1, 50))
+	shuffle(page_list)
+	j=0
+	for i in page_list:
+		page_url = cate_link + '?page=' + str(i)
+		try:
+			if j % 5 == 0:
+				driver.get('https://www.lazada.vn/')
+				sleep(20)
+				
+			driver.get(page_url)
+			div_list_products = driver.find_elements_by_xpath('//div[@class="c2prKC"]')
+			for div in div_list_products:
+				a_tag = div.find_element_by_tag_name('a')
+				link = a_tag.get_attribute('href')
+				f.write(str(link) + '\n')
+		except:
+			print(page_url)
+		sleep(randint(30, 60))
+		j+=1
+
+driver.close()

@@ -9,7 +9,6 @@ from random import randint, shuffle
 driver = webdriver.Chrome('./chromedriver')
 
 categories_link = open('./categories.txt').read().split()
-root_url = 'https://www.lazada.vn/ta-dung-cu-ve-sinh/'
 
 
 f = open('./url.txt', 'a', encoding='utf-8')

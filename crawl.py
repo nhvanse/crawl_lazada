@@ -5,14 +5,14 @@ from time import sleep
 from random import randint
 
 # vi tri link dau va vi tri link cuoi
-begin, end = 403, 8000
+begin, end = 8001+2919, 12000
 
 
 def parse(url, driver):
     driver.get(url)
     try:
         k=0
-        while k<20:
+        while k<10:
             k+=1
             comments_element = driver.find_element_by_class_name('mod-reviews')
             items = comments_element.find_elements_by_class_name('item')
@@ -43,7 +43,7 @@ def parse(url, driver):
         
 
     
-url_list = open('./url_list.txt', 'r', encoding='utf-8').read().split('\n')
+url_list = open('./url.txt', 'r', encoding='utf-8').read().split('\n')
 driver = webdriver.Chrome(executable_path='./chromedriver')
  
 with open('./data.csv','a', encoding='utf-8') as csvfile:
@@ -59,10 +59,10 @@ with open('./data.csv','a', encoding='utf-8') as csvfile:
             
             if j % 5 == 0:
                 driver.get('https://www.lazada.vn/')
-                sleep(1)
+                # sleep(1)
         except Exception as e:
             pass
-        sleep(1)
+        # sleep(1)
         j+=1
         
 
